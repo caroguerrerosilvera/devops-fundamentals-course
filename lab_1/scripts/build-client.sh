@@ -3,6 +3,13 @@
 APP_PATH=$1
 cd $APP_PATH
 
+# Check if client-app.zip exists
+if [ -f "dist/client-app.zip" ]
+then
+  # If it does, remove it from the file system
+  rm dist/client-app.zip
+fi
+
 # Set the ENV_CONFIGURATION environment variable based on the current environment
 if [ "$NODE_ENV" = "production" ]
 then
